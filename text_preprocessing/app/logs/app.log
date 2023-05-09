@@ -1,0 +1,401 @@
+2023-05-04 08:21:31,328 - ERROR - Error loading model and tokenizer from config.yaml
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/transformers/configuration_utils.py", line 577, in get_config_dict
+    config_dict = cls._dict_from_json_file(resolved_config_file)
+  File "/usr/local/lib/python3.9/site-packages/transformers/configuration_utils.py", line 667, in _dict_from_json_file
+    return json.loads(text)
+  File "/usr/local/lib/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/main.py", line 20, in <module>
+    tokenizer = AutoTokenizer.from_pretrained(model_url)
+  File "/usr/local/lib/python3.9/site-packages/transformers/models/auto/tokenization_auto.py", line 487, in from_pretrained
+    config = AutoConfig.from_pretrained(
+  File "/usr/local/lib/python3.9/site-packages/transformers/models/auto/configuration_auto.py", line 580, in from_pretrained
+    config_dict, _ = PretrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/transformers/configuration_utils.py", line 599, in get_config_dict
+    raise EnvironmentError(msg)
+OSError: Couldn't reach server at 'https://huggingface.co/distilbert-base-uncased-distilled-squad' to download configuration file or configuration file is not a valid JSON file. Please check network or file content here: /root/.cache/huggingface/transformers/31be8f84281055276acefaf069bf51c89d194d079fc8e821b4fec96a78b14fcc.fc565850d51d0c31dcdf85fe9a619658246c1aecdd46d9fc8f0f866c76d5237a.
+2023-05-04 08:21:31,334 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.2:5000
+2023-05-04 08:21:31,334 - INFO - [33mPress CTRL+C to quit[0m
+2023-05-04 08:21:31,335 - INFO -  * Restarting with stat
+2023-05-04 08:21:34,596 - ERROR - Error loading model and tokenizer from config.yaml
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/transformers/configuration_utils.py", line 577, in get_config_dict
+    config_dict = cls._dict_from_json_file(resolved_config_file)
+  File "/usr/local/lib/python3.9/site-packages/transformers/configuration_utils.py", line 667, in _dict_from_json_file
+    return json.loads(text)
+  File "/usr/local/lib/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/main.py", line 20, in <module>
+    tokenizer = AutoTokenizer.from_pretrained(model_url)
+  File "/usr/local/lib/python3.9/site-packages/transformers/models/auto/tokenization_auto.py", line 487, in from_pretrained
+    config = AutoConfig.from_pretrained(
+  File "/usr/local/lib/python3.9/site-packages/transformers/models/auto/configuration_auto.py", line 580, in from_pretrained
+    config_dict, _ = PretrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/transformers/configuration_utils.py", line 599, in get_config_dict
+    raise EnvironmentError(msg)
+OSError: Couldn't reach server at 'https://huggingface.co/distilbert-base-uncased-distilled-squad' to download configuration file or configuration file is not a valid JSON file. Please check network or file content here: /root/.cache/huggingface/transformers/31be8f84281055276acefaf069bf51c89d194d079fc8e821b4fec96a78b14fcc.2a8afe295dc97dec1f350f98e880a41045300c09442cd7bb6eb8e20d63b7bd73.
+2023-05-04 08:21:34,601 - WARNING -  * Debugger is active!
+2023-05-04 08:21:34,602 - INFO -  * Debugger PIN: 614-101-933
+2023-05-04 08:21:40,428 - INFO - 172.17.0.1 - - [04/May/2023 08:21:40] "GET / HTTP/1.1" 200 -
+2023-05-04 08:21:47,817 - ERROR - Error processing input
+Traceback (most recent call last):
+  File "/app/main.py", line 40, in process
+    inputs = tokenizer(text_input, return_tensors="pt", truncation=True, padding=True)
+NameError: name 'tokenizer' is not defined
+2023-05-04 08:21:47,818 - INFO - 172.17.0.1 - - [04/May/2023 08:21:47] "[35m[1mPOST /process HTTP/1.1[0m" 500 -
+2023-05-04 08:21:49,992 - ERROR - Error processing input
+Traceback (most recent call last):
+  File "/app/main.py", line 40, in process
+    inputs = tokenizer(text_input, return_tensors="pt", truncation=True, padding=True)
+NameError: name 'tokenizer' is not defined
+2023-05-04 08:21:49,993 - INFO - 172.17.0.1 - - [04/May/2023 08:21:49] "[35m[1mPOST /process HTTP/1.1[0m" 500 -
+2023-05-04 08:21:50,256 - ERROR - Error processing input
+Traceback (most recent call last):
+  File "/app/main.py", line 40, in process
+    inputs = tokenizer(text_input, return_tensors="pt", truncation=True, padding=True)
+NameError: name 'tokenizer' is not defined
+2023-05-04 08:21:50,256 - INFO - 172.17.0.1 - - [04/May/2023 08:21:50] "[35m[1mPOST /process HTTP/1.1[0m" 500 -
+2023-05-04 08:21:50,464 - ERROR - Error processing input
+Traceback (most recent call last):
+  File "/app/main.py", line 40, in process
+    inputs = tokenizer(text_input, return_tensors="pt", truncation=True, padding=True)
+NameError: name 'tokenizer' is not defined
+2023-05-04 08:21:50,464 - INFO - 172.17.0.1 - - [04/May/2023 08:21:50] "[35m[1mPOST /process HTTP/1.1[0m" 500 -
+2023-05-04 08:21:50,648 - ERROR - Error processing input
+Traceback (most recent call last):
+  File "/app/main.py", line 40, in process
+    inputs = tokenizer(text_input, return_tensors="pt", truncation=True, padding=True)
+NameError: name 'tokenizer' is not defined
+2023-05-04 08:21:50,648 - INFO - 172.17.0.1 - - [04/May/2023 08:21:50] "[35m[1mPOST /process HTTP/1.1[0m" 500 -
+2023-05-04 08:21:50,840 - ERROR - Error processing input
+Traceback (most recent call last):
+  File "/app/main.py", line 40, in process
+    inputs = tokenizer(text_input, return_tensors="pt", truncation=True, padding=True)
+NameError: name 'tokenizer' is not defined
+2023-05-04 08:21:50,840 - INFO - 172.17.0.1 - - [04/May/2023 08:21:50] "[35m[1mPOST /process HTTP/1.1[0m" 500 -
+2023-05-04 08:21:51,008 - ERROR - Error processing input
+Traceback (most recent call last):
+  File "/app/main.py", line 40, in process
+    inputs = tokenizer(text_input, return_tensors="pt", truncation=True, padding=True)
+NameError: name 'tokenizer' is not defined
+2023-05-04 08:21:51,008 - INFO - 172.17.0.1 - - [04/May/2023 08:21:51] "[35m[1mPOST /process HTTP/1.1[0m" 500 -
+2023-05-04 08:21:51,184 - ERROR - Error processing input
+Traceback (most recent call last):
+  File "/app/main.py", line 40, in process
+    inputs = tokenizer(text_input, return_tensors="pt", truncation=True, padding=True)
+NameError: name 'tokenizer' is not defined
+2023-05-04 08:21:51,185 - INFO - 172.17.0.1 - - [04/May/2023 08:21:51] "[35m[1mPOST /process HTTP/1.1[0m" 500 -
+2023-05-04 08:21:57,641 - ERROR - Error processing input
+Traceback (most recent call last):
+  File "/app/main.py", line 42, in process
+    inputs = tokenizer(text_input, context, return_tensors="pt", truncation=True, padding=True)
+NameError: name 'tokenizer' is not defined
+2023-05-04 08:21:57,641 - INFO - 172.17.0.1 - - [04/May/2023 08:21:57] "[35m[1mPOST /process HTTP/1.1[0m" 500 -
+2023-05-04 08:21:58,040 - ERROR - Error processing input
+Traceback (most recent call last):
+  File "/app/main.py", line 42, in process
+    inputs = tokenizer(text_input, context, return_tensors="pt", truncation=True, padding=True)
+NameError: name 'tokenizer' is not defined
+2023-05-04 08:21:58,040 - INFO - 172.17.0.1 - - [04/May/2023 08:21:58] "[35m[1mPOST /process HTTP/1.1[0m" 500 -
+2023-05-04 08:22:08,995 - INFO - 172.17.0.1 - - [04/May/2023 08:22:08] "[31m[1mGET /process HTTP/1.1[0m" 405 -
+2023-05-04 08:26:21,647 - ERROR - Error loading model and tokenizer from config.yaml
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/transformers/configuration_utils.py", line 577, in get_config_dict
+    config_dict = cls._dict_from_json_file(resolved_config_file)
+  File "/usr/local/lib/python3.9/site-packages/transformers/configuration_utils.py", line 667, in _dict_from_json_file
+    return json.loads(text)
+  File "/usr/local/lib/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/main.py", line 20, in <module>
+    tokenizer = AutoTokenizer.from_pretrained(model_url)
+  File "/usr/local/lib/python3.9/site-packages/transformers/models/auto/tokenization_auto.py", line 487, in from_pretrained
+    config = AutoConfig.from_pretrained(
+  File "/usr/local/lib/python3.9/site-packages/transformers/models/auto/configuration_auto.py", line 580, in from_pretrained
+    config_dict, _ = PretrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/transformers/configuration_utils.py", line 599, in get_config_dict
+    raise EnvironmentError(msg)
+OSError: Couldn't reach server at 'https://huggingface.co/distilbert-base-uncased-distilled-squad' to download configuration file or configuration file is not a valid JSON file. Please check network or file content here: /root/.cache/huggingface/transformers/31be8f84281055276acefaf069bf51c89d194d079fc8e821b4fec96a78b14fcc.b6041456e00eefb9a4874868339fd7c9afac87293df6851e0a9aea56c0384e62.
+2023-05-04 08:26:21,654 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.2:5000
+2023-05-04 08:26:21,654 - INFO - [33mPress CTRL+C to quit[0m
+2023-05-04 08:26:21,654 - INFO -  * Restarting with stat
+2023-05-04 08:26:25,024 - ERROR - Error loading model and tokenizer from config.yaml
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/transformers/configuration_utils.py", line 577, in get_config_dict
+    config_dict = cls._dict_from_json_file(resolved_config_file)
+  File "/usr/local/lib/python3.9/site-packages/transformers/configuration_utils.py", line 667, in _dict_from_json_file
+    return json.loads(text)
+  File "/usr/local/lib/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/main.py", line 20, in <module>
+    tokenizer = AutoTokenizer.from_pretrained(model_url)
+  File "/usr/local/lib/python3.9/site-packages/transformers/models/auto/tokenization_auto.py", line 487, in from_pretrained
+    config = AutoConfig.from_pretrained(
+  File "/usr/local/lib/python3.9/site-packages/transformers/models/auto/configuration_auto.py", line 580, in from_pretrained
+    config_dict, _ = PretrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/transformers/configuration_utils.py", line 599, in get_config_dict
+    raise EnvironmentError(msg)
+OSError: Couldn't reach server at 'https://huggingface.co/distilbert-base-uncased-distilled-squad' to download configuration file or configuration file is not a valid JSON file. Please check network or file content here: /root/.cache/huggingface/transformers/31be8f84281055276acefaf069bf51c89d194d079fc8e821b4fec96a78b14fcc.0e7a9b28468e6ddca09d9a99617869037f6cc8c417ff6632ba198113729324b1.
+2023-05-04 08:26:25,029 - WARNING -  * Debugger is active!
+2023-05-04 08:26:25,029 - INFO -  * Debugger PIN: 645-416-806
+2023-05-04 08:26:29,266 - INFO - 172.17.0.1 - - [04/May/2023 08:26:29] "GET / HTTP/1.1" 200 -
+2023-05-04 08:26:44,280 - ERROR - Error processing input
+Traceback (most recent call last):
+  File "/app/main.py", line 40, in process
+    inputs = tokenizer(text_input, return_tensors="pt", truncation=True, padding=True)
+NameError: name 'tokenizer' is not defined
+2023-05-04 08:26:44,280 - INFO - 172.17.0.1 - - [04/May/2023 08:26:44] "[35m[1mPOST /process HTTP/1.1[0m" 500 -
+2023-05-04 08:26:50,458 - INFO - 172.17.0.1 - - [04/May/2023 08:26:50] "[31m[1mGET /process HTTP/1.1[0m" 405 -
+2023-05-04 08:29:54,653 - ERROR - Error loading model and tokenizer from config.yaml
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/transformers/configuration_utils.py", line 577, in get_config_dict
+    config_dict = cls._dict_from_json_file(resolved_config_file)
+  File "/usr/local/lib/python3.9/site-packages/transformers/configuration_utils.py", line 667, in _dict_from_json_file
+    return json.loads(text)
+  File "/usr/local/lib/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/app.py", line 20, in <module>
+    tokenizer = AutoTokenizer.from_pretrained(model_url)
+  File "/usr/local/lib/python3.9/site-packages/transformers/models/auto/tokenization_auto.py", line 487, in from_pretrained
+    config = AutoConfig.from_pretrained(
+  File "/usr/local/lib/python3.9/site-packages/transformers/models/auto/configuration_auto.py", line 580, in from_pretrained
+    config_dict, _ = PretrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/transformers/configuration_utils.py", line 599, in get_config_dict
+    raise EnvironmentError(msg)
+OSError: Couldn't reach server at 'https://huggingface.co/distilbert-base-uncased-distilled-squad' to download configuration file or configuration file is not a valid JSON file. Please check network or file content here: /root/.cache/huggingface/transformers/31be8f84281055276acefaf069bf51c89d194d079fc8e821b4fec96a78b14fcc.805d337da12f3df43f1bcc3d233590a1232d648359f975d8f317eb6d82db205f.
+2023-05-04 08:29:54,659 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.2:5000
+2023-05-04 08:29:54,660 - INFO - [33mPress CTRL+C to quit[0m
+2023-05-04 08:29:54,660 - INFO -  * Restarting with stat
+2023-05-04 08:29:57,407 - ERROR - Error loading model and tokenizer from config.yaml
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/transformers/configuration_utils.py", line 577, in get_config_dict
+    config_dict = cls._dict_from_json_file(resolved_config_file)
+  File "/usr/local/lib/python3.9/site-packages/transformers/configuration_utils.py", line 667, in _dict_from_json_file
+    return json.loads(text)
+  File "/usr/local/lib/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/app.py", line 20, in <module>
+    tokenizer = AutoTokenizer.from_pretrained(model_url)
+  File "/usr/local/lib/python3.9/site-packages/transformers/models/auto/tokenization_auto.py", line 487, in from_pretrained
+    config = AutoConfig.from_pretrained(
+  File "/usr/local/lib/python3.9/site-packages/transformers/models/auto/configuration_auto.py", line 580, in from_pretrained
+    config_dict, _ = PretrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/transformers/configuration_utils.py", line 599, in get_config_dict
+    raise EnvironmentError(msg)
+OSError: Couldn't reach server at 'https://huggingface.co/distilbert-base-uncased-distilled-squad' to download configuration file or configuration file is not a valid JSON file. Please check network or file content here: /root/.cache/huggingface/transformers/31be8f84281055276acefaf069bf51c89d194d079fc8e821b4fec96a78b14fcc.f5d622894265d48651e8b8b7013e74698d6241f106013b3170652a5ffa7bce2c.
+2023-05-04 08:29:57,412 - WARNING -  * Debugger is active!
+2023-05-04 08:29:57,412 - INFO -  * Debugger PIN: 124-468-145
+2023-05-04 08:30:22,214 - INFO - 172.17.0.1 - - [04/May/2023 08:30:22] "GET / HTTP/1.1" 200 -
+2023-05-04 08:30:22,263 - INFO - 172.17.0.1 - - [04/May/2023 08:30:22] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2023-05-04 08:30:37,188 - ERROR - Error processing input
+Traceback (most recent call last):
+  File "/app/app.py", line 42, in process
+    inputs = tokenizer(text_input, context, return_tensors="pt", truncation=True, padding=True)
+NameError: name 'tokenizer' is not defined
+2023-05-04 08:30:37,188 - INFO - 172.17.0.1 - - [04/May/2023 08:30:37] "[35m[1mPOST /process HTTP/1.1[0m" 500 -
+2023-05-04 08:30:52,246 - INFO - 172.17.0.1 - - [04/May/2023 08:30:52] "[33mGET /response HTTP/1.1[0m" 404 -
+2023-05-04 08:31:04,910 - INFO - 172.17.0.1 - - [04/May/2023 08:31:04] "[31m[1mGET /process HTTP/1.1[0m" 405 -
+2023-05-04 08:33:04,655 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.2:5000
+2023-05-04 08:33:04,655 - INFO - [33mPress CTRL+C to quit[0m
+2023-05-04 08:33:04,656 - INFO -  * Restarting with stat
+2023-05-04 08:33:12,933 - WARNING -  * Debugger is active!
+2023-05-04 08:33:12,933 - INFO -  * Debugger PIN: 137-374-137
+2023-05-04 08:33:12,936 - INFO - 172.17.0.1 - - [04/May/2023 08:33:12] "GET / HTTP/1.1" 200 -
+2023-05-04 08:33:19,680 - ERROR - Error processing input
+Traceback (most recent call last):
+  File "/app/app.py", line 40, in process
+    inputs = tokenizer(text_input, return_tensors="pt", truncation=True, padding=True)
+  File "/usr/local/lib/python3.9/site-packages/transformers/tokenization_utils_base.py", line 2433, in __call__
+    return self.encode_plus(
+  File "/usr/local/lib/python3.9/site-packages/transformers/tokenization_utils_base.py", line 2503, in encode_plus
+    return self._encode_plus(
+  File "/usr/local/lib/python3.9/site-packages/transformers/tokenization_utils_fast.py", line 479, in _encode_plus
+    batched_output = self._batch_encode_plus(
+  File "/usr/local/lib/python3.9/site-packages/transformers/tokenization_utils_fast.py", line 454, in _batch_encode_plus
+    return BatchEncoding(sanitized_tokens, sanitized_encodings, tensor_type=return_tensors)
+  File "/usr/local/lib/python3.9/site-packages/transformers/tokenization_utils_base.py", line 210, in __init__
+    self.convert_to_tensors(tensor_type=tensor_type, prepend_batch_axis=prepend_batch_axis)
+  File "/usr/local/lib/python3.9/site-packages/transformers/tokenization_utils_base.py", line 677, in convert_to_tensors
+    raise ImportError("Unable to convert output to PyTorch tensors format, PyTorch is not installed.")
+ImportError: Unable to convert output to PyTorch tensors format, PyTorch is not installed.
+2023-05-04 08:33:19,681 - INFO - 172.17.0.1 - - [04/May/2023 08:33:19] "[35m[1mPOST /process HTTP/1.1[0m" 500 -
+2023-05-04 08:34:34,946 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.2:5000
+2023-05-04 08:34:34,946 - INFO - [33mPress CTRL+C to quit[0m
+2023-05-04 08:34:34,947 - INFO -  * Restarting with stat
+2023-05-04 08:34:42,345 - WARNING -  * Debugger is active!
+2023-05-04 08:34:42,346 - INFO -  * Debugger PIN: 610-884-721
+2023-05-04 08:34:42,349 - INFO - Tokenized inputs: {'input_ids': [101, 7592, 1045, 2572, 11113, 4048, 16963, 2102, 102], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1]}
+2023-05-04 08:34:42,350 - ERROR - Error processing input
+Traceback (most recent call last):
+  File "/app/app.py", line 46, in process
+    return jsonify(inputs)
+  File "/usr/local/lib/python3.9/site-packages/flask/json/__init__.py", line 297, in jsonify
+    f"{dumps(data, indent=indent, separators=separators)}\n",
+  File "/usr/local/lib/python3.9/site-packages/flask/json/__init__.py", line 131, in dumps
+    return _json.dumps(obj, **kwargs)
+  File "/usr/local/lib/python3.9/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/usr/local/lib/python3.9/json/encoder.py", line 201, in encode
+    chunks = list(chunks)
+  File "/usr/local/lib/python3.9/json/encoder.py", line 438, in _iterencode
+    o = _default(o)
+  File "/usr/local/lib/python3.9/site-packages/flask/json/__init__.py", line 50, in default
+    return super().default(o)
+  File "/usr/local/lib/python3.9/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type BatchEncoding is not JSON serializable
+2023-05-04 08:34:42,350 - INFO - 172.17.0.1 - - [04/May/2023 08:34:42] "[35m[1mPOST /process HTTP/1.1[0m" 500 -
+2023-05-04 08:34:45,443 - INFO - 172.17.0.1 - - [04/May/2023 08:34:45] "GET / HTTP/1.1" 200 -
+2023-05-04 08:34:48,273 - INFO - Tokenized inputs: {'input_ids': [101, 7592, 1045, 2572, 11113, 4048, 16963, 2102, 102], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1]}
+2023-05-04 08:34:48,273 - ERROR - Error processing input
+Traceback (most recent call last):
+  File "/app/app.py", line 46, in process
+    return jsonify(inputs)
+  File "/usr/local/lib/python3.9/site-packages/flask/json/__init__.py", line 297, in jsonify
+    f"{dumps(data, indent=indent, separators=separators)}\n",
+  File "/usr/local/lib/python3.9/site-packages/flask/json/__init__.py", line 131, in dumps
+    return _json.dumps(obj, **kwargs)
+  File "/usr/local/lib/python3.9/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/usr/local/lib/python3.9/json/encoder.py", line 201, in encode
+    chunks = list(chunks)
+  File "/usr/local/lib/python3.9/json/encoder.py", line 438, in _iterencode
+    o = _default(o)
+  File "/usr/local/lib/python3.9/site-packages/flask/json/__init__.py", line 50, in default
+    return super().default(o)
+  File "/usr/local/lib/python3.9/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type BatchEncoding is not JSON serializable
+2023-05-04 08:34:48,273 - INFO - 172.17.0.1 - - [04/May/2023 08:34:48] "[35m[1mPOST /process HTTP/1.1[0m" 500 -
+2023-05-04 08:36:44,179 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.2:5000
+2023-05-04 08:36:44,179 - INFO - [33mPress CTRL+C to quit[0m
+2023-05-04 08:36:44,179 - INFO -  * Restarting with stat
+2023-05-04 08:36:51,174 - WARNING -  * Debugger is active!
+2023-05-04 08:36:51,175 - INFO -  * Debugger PIN: 126-786-474
+2023-05-04 08:36:51,178 - INFO - 172.17.0.1 - - [04/May/2023 08:36:51] "GET / HTTP/1.1" 200 -
+2023-05-04 08:36:52,515 - INFO - Tokenized inputs: {'input_ids': [101, 7592, 1045, 2572, 11113, 4048, 16963, 2102, 102], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1]}
+2023-05-04 08:36:52,515 - ERROR - Error processing input
+Traceback (most recent call last):
+  File "/app/app.py", line 46, in process
+    inputs_dict = {key: value.tolist() for key, value in inputs.items()}
+  File "/app/app.py", line 46, in <dictcomp>
+    inputs_dict = {key: value.tolist() for key, value in inputs.items()}
+AttributeError: 'list' object has no attribute 'tolist'
+2023-05-04 08:36:52,515 - INFO - 172.17.0.1 - - [04/May/2023 08:36:52] "[35m[1mPOST /process HTTP/1.1[0m" 500 -
+2023-05-04 08:38:17,920 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.2:5000
+2023-05-04 08:38:17,920 - INFO - [33mPress CTRL+C to quit[0m
+2023-05-04 08:38:17,921 - INFO -  * Restarting with stat
+2023-05-04 08:38:27,234 - WARNING -  * Debugger is active!
+2023-05-04 08:38:27,234 - INFO -  * Debugger PIN: 113-274-717
+2023-05-04 08:38:27,238 - INFO - 172.17.0.1 - - [04/May/2023 08:38:27] "GET / HTTP/1.1" 200 -
+2023-05-04 08:38:27,238 - INFO - Tokenized inputs: {'input_ids': [101, 7592, 1045, 2572, 11113, 4048, 16963, 2102, 102], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1]}
+2023-05-04 08:38:27,239 - INFO - 172.17.0.1 - - [04/May/2023 08:38:27] "POST /process HTTP/1.1" 200 -
+2023-05-04 08:38:40,932 - INFO - Tokenized inputs: {'input_ids': [101, 7592, 1045, 2572, 11113, 4048, 16963, 2102, 102, 1045, 2572, 11113, 4048, 16963, 2102, 1045, 2572, 1037, 10810, 3608, 2447, 102], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}
+2023-05-04 08:38:40,932 - INFO - 172.17.0.1 - - [04/May/2023 08:38:40] "POST /process HTTP/1.1" 200 -
+2023-05-04 08:39:06,863 - INFO - 172.17.0.1 - - [04/May/2023 08:39:06] "GET / HTTP/1.1" 200 -
+2023-05-04 08:39:30,046 - INFO - 172.17.0.1 - - [04/May/2023 08:39:30] "[31m[1mGET /process HTTP/1.1[0m" 405 -
+2023-05-04 08:39:34,390 - INFO - 172.17.0.1 - - [04/May/2023 08:39:34] "GET / HTTP/1.1" 200 -
+2023-05-04 08:39:50,205 - INFO - Tokenized inputs: {'input_ids': [101, 2054, 2003, 1037, 5202, 102, 8626, 2024, 27863, 7329, 102], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}
+2023-05-04 08:39:50,205 - INFO - 172.17.0.1 - - [04/May/2023 08:39:50] "POST /process HTTP/1.1" 200 -
+2023-05-04 08:40:27,444 - INFO - Tokenized inputs: {'input_ids': [101, 2054, 2003, 1037, 5202, 102, 8626, 2024, 27863, 7329, 6919, 2000, 3193, 102], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}
+2023-05-04 08:40:27,445 - INFO - 172.17.0.1 - - [04/May/2023 08:40:27] "POST /process HTTP/1.1" 200 -
+2023-05-04 08:49:54,759 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.2:5000
+2023-05-04 08:49:54,759 - INFO - [33mPress CTRL+C to quit[0m
+2023-05-04 08:49:54,759 - INFO -  * Restarting with stat
+2023-05-04 08:50:02,956 - WARNING -  * Debugger is active!
+2023-05-04 08:50:02,957 - INFO -  * Debugger PIN: 743-869-266
+2023-05-04 08:50:06,007 - INFO - 172.17.0.1 - - [04/May/2023 08:50:06] "GET / HTTP/1.1" 200 -
+2023-05-04 08:50:47,438 - INFO - Tokenized inputs: {'input_ids': [101, 2129, 2003, 1996, 4633, 102, 1996, 4633, 2003, 2204, 102], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}
+2023-05-04 08:50:47,439 - INFO - 172.17.0.1 - - [04/May/2023 08:50:47] "POST /process HTTP/1.1" 200 -
+2023-05-04 08:53:05,363 - INFO - 172.17.0.1 - - [04/May/2023 08:53:05] "GET / HTTP/1.1" 200 -
+2023-05-04 08:53:06,641 - INFO - Tokenized inputs: {'input_ids': [101, 2129, 2003, 1996, 4633, 102, 1996, 4633, 2003, 2204, 102], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}
+2023-05-04 08:53:06,641 - INFO - 172.17.0.1 - - [04/May/2023 08:53:06] "POST /process HTTP/1.1" 200 -
+2023-05-04 13:11:17,254 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.2:5000
+2023-05-04 13:11:17,254 - INFO - [33mPress CTRL+C to quit[0m
+2023-05-04 13:11:17,255 - INFO -  * Restarting with stat
+2023-05-04 13:11:26,227 - WARNING -  * Debugger is active!
+2023-05-04 13:11:26,228 - INFO -  * Debugger PIN: 124-518-201
+2023-05-04 13:11:26,256 - INFO - 172.17.0.1 - - [04/May/2023 13:11:26] "GET / HTTP/1.1" 200 -
+2023-05-04 13:11:29,002 - INFO - Tokenized inputs: {'input_ids': [101, 20315, 14141, 2094, 102], 'attention_mask': [1, 1, 1, 1, 1]}
+2023-05-04 13:11:29,002 - INFO - 172.17.0.1 - - [04/May/2023 13:11:29] "POST /process HTTP/1.1" 200 -

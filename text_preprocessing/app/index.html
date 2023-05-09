@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Text Preprocess Microservice</title>
+  <script>
+    async function submitForm(event) {
+      event.preventDefault();
+      const text_input = document.getElementById("text_input").value;
+      const context = document.getElementById("context").value;
+      const response = await fetch("/process", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ text_input, context }),
+      });
+      const result = await response.json();
+      document.getElementById("tokenized").value = JSON.stringify(result, null, 2);
+    }
+  </script>
+</head>
+<body>
+  <h1>Text Preprocess Microservice</h1>
+  <form onsubmit="submitForm(event)">
+    <label for="text_input">Text_Input:</label>
+    <textarea name="text_input" id="text_input" rows="4" cols="50"></textarea><br><br>
+    <label for="context">Context:</label>
+    <textarea name="context" id="context" rows="4" cols="50"></textarea><br><br>
+    <input type="submit" value="Submit">
+  </form>
+  <h2>Tokenized Inputs:</h2>
+  <textarea id="tokenized" rows="10" cols="50" readonly></textarea>
+</body>
+</html>
