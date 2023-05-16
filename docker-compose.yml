@@ -1,7 +1,9 @@
 version: '3.8'
 services:
   text_processor:
-    image: abhimazu/text-processor:1.0
+    build:
+      context: ./text_preprocessing
+      dockerfile: Dockerfile
     volumes:
       - ./app/logs:/app/logs
       - ./app/resources:/app/resources
