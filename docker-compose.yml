@@ -2,7 +2,8 @@ version: '3.8'
 services:
   text-processor:
     image: 'abhimazu/text-processor:1.0'
-    volumes:
-      - ./app/logs:/app/logs
+#    volumes:
+#      - ./app/logs:/app/logs
+#      - ./app/resources:/app/resources
     ports:
       - '5000:5000'
