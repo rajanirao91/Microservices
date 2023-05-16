@@ -1,0 +1,4 @@
+apiVersion: v2
+name: tpm_chart
+description: A Helm chart for the Text Processor Microservice
+version: 1.0.0

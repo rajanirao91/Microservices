@@ -1,0 +1,11 @@
+replicaCount: 1
+
+image:
+  repository: abhimazu/text-processor
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 5000
+
+resources: {}

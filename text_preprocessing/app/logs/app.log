@@ -399,3 +399,30 @@ AttributeError: 'list' object has no attribute 'tolist'
 2023-05-04 13:11:26,256 - INFO - 172.17.0.1 - - [04/May/2023 13:11:26] "GET / HTTP/1.1" 200 -
 2023-05-04 13:11:29,002 - INFO - Tokenized inputs: {'input_ids': [101, 20315, 14141, 2094, 102], 'attention_mask': [1, 1, 1, 1, 1]}
 2023-05-04 13:11:29,002 - INFO - 172.17.0.1 - - [04/May/2023 13:11:29] "POST /process HTTP/1.1" 200 -
+2023-05-16 10:08:50,084 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.2:5000
+2023-05-16 10:08:50,084 - INFO - [33mPress CTRL+C to quit[0m
+2023-05-16 10:08:50,084 - INFO -  * Restarting with stat
+2023-05-16 10:08:57,724 - WARNING -  * Debugger is active!
+2023-05-16 10:08:57,725 - INFO -  * Debugger PIN: 120-583-245
+2023-05-16 10:08:57,727 - INFO - 10.213.72.180 - - [16/May/2023 10:08:57] "GET / HTTP/1.1" 200 -
+2023-05-16 10:08:57,881 - INFO - 10.213.72.180 - - [16/May/2023 10:08:57] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2023-05-16 10:09:07,512 - INFO - Tokenized inputs: {'input_ids': [101, 11113, 4048, 16963, 2102, 2003, 1037, 2204, 2879, 102], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}
+2023-05-16 10:09:07,512 - INFO - 10.213.72.180 - - [16/May/2023 10:09:07] "POST /process HTTP/1.1" 200 -
+2023-05-16 10:09:17,398 - INFO - Tokenized inputs: {'input_ids': [101, 11113, 4048, 16963, 2102, 2003, 1037, 2204, 2879, 102, 11113, 4048, 16963, 2102, 2003, 1037, 2919, 2879, 102], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}
+2023-05-16 10:09:17,398 - INFO - 10.213.72.180 - - [16/May/2023 10:09:17] "POST /process HTTP/1.1" 200 -
+2023-05-16 10:09:23,372 - INFO - Tokenized inputs: {'input_ids': [101, 11113, 4048, 16963, 2102, 2003, 1037, 2204, 2879, 102, 11113, 4048, 16963, 2102, 2003, 1037, 2919, 2879, 102], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}
+2023-05-16 10:09:23,373 - INFO - 10.213.72.180 - - [16/May/2023 10:09:23] "POST /process HTTP/1.1" 200 -
+2023-05-16 10:12:54,532 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.2:5000
+2023-05-16 10:12:54,532 - INFO - [33mPress CTRL+C to quit[0m
+2023-05-16 10:12:54,532 - INFO -  * Restarting with stat
+2023-05-16 10:13:04,087 - WARNING -  * Debugger is active!
+2023-05-16 10:13:04,087 - INFO -  * Debugger PIN: 127-425-825
+2023-05-16 10:13:04,190 - INFO - 10.213.72.180 - - [16/May/2023 10:13:04] "GET / HTTP/1.1" 200 -
+2023-05-16 10:13:13,640 - INFO - Tokenized inputs: {'input_ids': [101, 1048, 9148, 16409, 8873, 25974, 2278, 16526, 19296, 19419, 2232, 16526, 26760, 8566, 6979, 2094, 102, 1059, 3527, 17922, 2546, 2232, 12155, 17922, 2546, 1042, 12155, 10179, 2546, 10536, 2860, 2683, 14289, 29323, 102], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}
+2023-05-16 10:13:13,640 - INFO - 10.213.72.180 - - [16/May/2023 10:13:13] "POST /process HTTP/1.1" 200 -
