@@ -1,0 +1,85 @@
+pipeline {
+    agent {
+        node {
+            label 'devcloud-agent-medium'
+        }
+    }
+    
+    environment {
+        Github_Token = credentials('sys_github_onesource')
+        CURRENT_DATE = sh(script: 'date +%Y%m%d_%H%M%S', returnStdout: true).trim()
+        devcloudSAtoken = credentials('devcloudSandboxToken')
+    }
+    
+    stages {
+        stage('Cloning repositories') {
+            steps {
+                sh'''
+                cd $WORKSPACE
+                sudo rm -rf *
+                git clone https://$Github_Token@github.com/rajanirao91/Microservices.git -b main
+                ls -ltr
+                '''
+            }
+        }
+        
+        stage('Build-Microservice') {
+            steps {
+                sh'''
+                cd $WORKSPACE/Microservices/text_preprocessing
+                ls -ltr
+                docker build -t="text-processor:${text-processor_ver}" .
+                python3 -m pip install -r app/requirements.txt
+                python3 -m pip install pytest
+                python3 -m pip install pytest-cov
+                sudo apt-get update
+                sudo apt-get install docker-compose-plugin
+                
+                docker compose up -d
+                #cd $WORKSPACE/Microservices/tests/unit
+                #python3 -m pytest --cov=./ test_unit.py --cov-report=xml:coverage.xml
+                #docker compose down
+                '''
+            }
+        }
+        stage('Unit-Test') {
+            steps {
+                sh'''
+                
+                cd $WORKSPACE/Microservices/tests/unit
+                python3 -m pytest --cov=./ test_unit.py --cov-report=xml:coverage.xml
+                docker compose down
+                '''
+            }
+        }
+        
+        stage('Deploy-Microservice') {
+            steps {
+                sh'''
+                
+                docker login https://default-route-openshift-image-registry.apps.sandbox.cfa.devcloud.intel.com -u devcloud -p $devcloudSAtoken
+                docker tag text-processor:${text-processor_ver} default-route-openshift-image-registry.apps.sandbox.cfa.devcloud.intel.com/devcloud-ri/text-processor:${text-processor_ver}
+                docker push default-route-openshift-image-registry.apps.sandbox.cfa.devcloud.intel.com/devcloud-ri/text-processor:${text-processor_ver}
+                docker rmi default-route-openshift-image-registry.apps.sandbox.cfa.devcloud.intel.com/devcloud-ri/text-processor:${text-processor_ver}
+                '''
+            }
+            post{
+                always{
+                    step([$class: 'CoberturaPublisher',
+                                   autoUpdateHealth: false,
+                                   autoUpdateStability: false,
+                                   coberturaReportFile: 'coverage.xml',
+                                   failNoReports: false,
+                                   failUnhealthy: true,
+                                   failUnstable: false,
+                                   maxNumberOfBuilds: 25,
+                                   lineCoverageTargets: '0,0,0',
+                                   onlyStable: false,
+                                   sourceEncoding: 'ASCII',
+                                   zoomCoverageChart: false])
+                }
+            }
+        }
+        
+    }
+}
